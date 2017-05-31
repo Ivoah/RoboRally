@@ -2,8 +2,10 @@ import sys
 import pygame
 from pygame.locals import *
 
+from Card import Card
 from Board import Board
 from Robot import Robot
+from Button import Button
 
 WIDTH = 12*64
 HEIGHT = (12 + 4)*64
@@ -17,6 +19,8 @@ pygame.display.set_caption('Robo Rally', 'Robo Rally')
 board = Board('ChopShop.json')
 start = Board('start.json')
 
+card = Card('move', 314, 3)
+
 while True:
     for event in pygame.event.get():
         if event.type == MOUSEBUTTONUP and event.button == 1: pass
@@ -26,4 +30,6 @@ while True:
 
     board.draw(window)
     start.draw(window, (0, 12*64))
+    card.draw(window, pygame.mouse.get_pos())
+
     pygame.display.update()

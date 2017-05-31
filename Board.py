@@ -14,4 +14,4 @@ class Board:
     def draw(self, surface, offset = (0, 0)):
         for i, tiles in enumerate(self.board):
             for tile in tiles:
-                surface.blit(pygame.transform.rotate(tileset[tile[0]], tile[1]*90), (i%self.width*64 + offset[0], int(i/self.width)*64 + offset[1]))
+                surface.blit(pygame.transform.rotate(tileset[tile[0]], tile[1]*90), (i%self.width*64 + offset[0], i//self.width*64 + offset[1]))
