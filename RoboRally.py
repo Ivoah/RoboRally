@@ -13,7 +13,7 @@ HEIGHT = (12 + 4)*64
 pygame.init()
 
 window = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_icon(pygame.image.load('RoboRally.jpg'))
+pygame.display.set_icon(pygame.image.load('RoboRally.png'))
 pygame.display.set_caption('Robo Rally', 'Robo Rally')
 
 board = Board('ChopShop.json')
