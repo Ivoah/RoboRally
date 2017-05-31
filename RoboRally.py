@@ -14,8 +14,8 @@ window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_icon(pygame.image.load('RoboRally.jpg'))
 pygame.display.set_caption('Robo Rally', 'Robo Rally')
 
-board = Board('Chop Shop')
-board.load('ChopShop.json')
+board = Board('ChopShop.json')
+start = Board('start.json')
 
 while True:
     for event in pygame.event.get():
@@ -25,4 +25,5 @@ while True:
     # Drawing
 
     board.draw(window)
+    start.draw(window, (0, 12*64))
     pygame.display.update()

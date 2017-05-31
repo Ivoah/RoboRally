@@ -7,15 +7,11 @@ tileset = {
 }
 
 class Board:
-    def __init__(self, name):
-        self.name = name
-        self.board = [[['floor', 0]] for i in range(12*12)]
-
-    def load(self, file):
+    def __init__(self, file):
         with open(file) as f:
-            self.board = json.load(f)
+            self.board, self.width, self.height = json.load(f)
 
-    def draw(self, surface):
+    def draw(self, surface, offset = (0, 0)):
         for i, tiles in enumerate(self.board):
             for tile in tiles:
-                surface.blit(pygame.transform.rotate(tileset[tile[0]], tile[1]*90), (i%12*64, int(i/12)*64))
+                surface.blit(pygame.transform.rotate(tileset[tile[0]], tile[1]*90), (i%self.width*64 + offset[0], int(i/self.width)*64 + offset[1]))
