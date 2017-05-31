@@ -35,10 +35,10 @@ while True:
         elif event.type == KEYDOWN and (event.mod == 1024 or event.mod == 2048) and event.key == K_s:
             with open('map.json', 'w') as f:
                 json.dump(board, f)
-        elif event.type == KEYDOWN and (event.mod == 1024 or event.mod == 2048) and event.key == K_o:
+        elif event.type == KEYDOWN and event.mod & (KMOD_LMETA | KMOD_RMETA) and event.key == K_o:
             with open('map.json') as f:
                 board = json.load(f)
-        elif (event.type == KEYDOWN and (event.mod == 1024 or event.mod == 2048) and event.key == K_q) or event.type == QUIT: sys.exit()
+        elif (event.type == KEYDOWN and event.mod & (KMOD_LMETA | KMOD_RMETA) and event.key == K_q) or event.type == QUIT: sys.exit()
         #else: print(event)
 
     for i, tiles in enumerate(board):
