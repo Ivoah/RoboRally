@@ -6,7 +6,7 @@ from Board import Board
 from Robot import Robot
 
 WIDTH = 12*64
-HEIGHT = 12*64
+HEIGHT = (12 + 4)*64
 
 pygame.init()
 

@@ -4,12 +4,12 @@ import json
 import pygame
 from pygame.locals import *
 
-WIDTH = 12*64
-HEIGHT = 12*64
+WIDTH = 12
+HEIGHT = 12
 
 pygame.init()
 
-window = pygame.display.set_mode((WIDTH, HEIGHT))
+window = pygame.display.set_mode((WIDTH*64, HEIGHT*64))
 pygame.display.set_icon(pygame.image.load('RoboRally.jpg'))
 pygame.display.set_caption('Robo Rally', 'Robo Rally')
 
@@ -21,9 +21,9 @@ tilenames = [tile[6:-4] for tile in glob.glob('tiles/*.png') if tile[6:-4] != 'f
 active = 0
 rotation = 0
 
-board = [[['floor', 0]] for i in range(12*12)]
+board = [[['floor', 0]] for i in range(WIDTH*HEIGHT)]
 
-point_to_tile = lambda p: int(p[0]/64) + int(p[1]/64)*12
+point_to_tile = lambda p: int(p[0]/64) + int(p[1]/64)*WIDTH
 
 while True:
     for event in pygame.event.get():
@@ -43,7 +43,7 @@ while True:
 
     for i, tiles in enumerate(board):
         for tile in tiles:
-            window.blit(pygame.transform.rotate(tileset[tile[0]], tile[1]*90), (i%12*64, int(i/12)*64))
+            window.blit(pygame.transform.rotate(tileset[tile[0]], tile[1]*90), (i%WIDTH*64, int(i/WIDTH)*64))
 
     window.blit(pygame.transform.rotate(tileset[tilenames[active]], rotation*90), tuple(t - 32 for t in pygame.mouse.get_pos()))
 
