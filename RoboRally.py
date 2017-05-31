@@ -20,7 +20,7 @@ board.load('ChopShop.json')
 while True:
     for event in pygame.event.get():
         if event.type == MOUSEBUTTONUP and event.button == 1: pass
-    elif (event.type == KEYDOWN and event.mod & (KMOD_LMETA | KMOD_RMETA) and event.key == 113) or event.type == QUIT: sys.exit()
+        elif (event.type == KEYDOWN and event.mod & (KMOD_LMETA | KMOD_RMETA) and event.key == 113) or event.type == QUIT: sys.exit()
 
     # Drawing
 
