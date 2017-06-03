@@ -10,7 +10,7 @@ HEIGHT = 12
 pygame.init()
 
 window = pygame.display.set_mode((WIDTH*64, HEIGHT*64))
-pygame.display.set_icon(pygame.image.load('RoboRally.jpg'))
+pygame.display.set_icon(pygame.image.load('RoboRally.png'))
 pygame.display.set_caption('Robo Rally', 'Robo Rally')
 
 tileset = {

@@ -2,6 +2,8 @@ import sys
 import pygame
 from pygame.locals import *
 
+pygame.init()
+
 from Card import Card
 from Board import Board
 from Robot import Robot
@@ -10,8 +12,6 @@ from Button import Button
 WIDTH = 12*64
 HEIGHT = (12 + 4)*64
 
-pygame.init()
-
 window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_icon(pygame.image.load('RoboRally.png'))
 pygame.display.set_caption('Robo Rally', 'Robo Rally')
@@ -19,7 +19,7 @@ pygame.display.set_caption('Robo Rally', 'Robo Rally')
 board = Board('ChopShop.json')
 start = Board('start.json')
 
-card = Card('move', 314, 3)
+card = Card('turn_right', 314)
 
 while True:
     for event in pygame.event.get():
