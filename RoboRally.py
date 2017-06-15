@@ -4,32 +4,23 @@ from pygame.locals import *
 
 pygame.init()
 
-from Card import Card
-from Board import Board
-from Robot import Robot
-from Button import Button
+from constants import *
 
-WIDTH = 12*64
-HEIGHT = (12 + 4)*64
+from MainMenu import MainMenu
 
 window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_icon(pygame.image.load('RoboRally.png'))
 pygame.display.set_caption('Robo Rally', 'Robo Rally')
 
-board = Board('ChopShop.json')
-start = Board('start.json')
-
-card = Card('turn_right', 314)
+screen = MainMenu()
 
 while True:
     for event in pygame.event.get():
+        screen = screen.event(event)
         if event.type == MOUSEBUTTONUP and event.button == 1: pass
         elif (event.type == KEYDOWN and event.mod & (KMOD_LMETA | KMOD_RMETA) and event.key == K_q) or event.type == QUIT: sys.exit()
 
     # Drawing
-
-    board.draw(window)
-    start.draw(window, (0, 12*64))
-    card.draw(window, pygame.mouse.get_pos())
+    screen.draw(window)
 
     pygame.display.update()
